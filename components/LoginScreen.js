@@ -11,7 +11,7 @@ import {
     StyleSheet,
 } from 'react-native';
 
-export default function LoginScreen() {
+export default function LoginScreen({navigation}) {
     const [email, onChangeEmail] = useState('');
     const [password, onChangePassword] = useState('');
     const [loggedIn, onLogin] = useState(false);
@@ -49,16 +49,17 @@ export default function LoginScreen() {
                     />
                 </>
             )}
-            <Pressable
+            {/* <Pressable
                 style={styles.button}
                 onPress={() => onLogin(!loggedIn)}
-            // onPress={() => onLogin((prevLoggedIn) => !prevLoggedIn)
-            //  onPress={() => onLogin(true)}
             >
                 <Text style={styles.buttonText}>
                     Log in
                 </Text>
-            </Pressable>
+            </Pressable> */}
+            <Pressable style={styles.button} onPress={() => navigation.navigate('Welcome')}>
+                <Text style={styles.buttonText}>Log in</Text>
+            </Pressable> 
         </ScrollView>
 
     );
@@ -67,6 +68,7 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#333333',
     },
     headerText: {
         padding: 40,

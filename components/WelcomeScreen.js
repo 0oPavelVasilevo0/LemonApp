@@ -10,16 +10,18 @@ import {
     useWindowDimensions,
     Platform,
     Image,
+    Pressable
 } from 'react-native';
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({navigation}) {
+
     const colorScheme = useColorScheme();
 
-    const { height, width, fontScale } = useWindowDimensions();
+    // const { height, width, fontScale } = useWindowDimensions();
 
-    const [firstName, onChangeFirstName] = useState('');
-    const [lastName, onChangeLastName] = useState('');
-    const [message, onChangeMessage] = useState('');
+    // const [firstName, onChangeFirstName] = useState('');
+    // const [lastName, onChangeLastName] = useState('');
+    // const [message, onChangeMessage] = useState('');
 
     return (
         <KeyboardAvoidingView
@@ -47,10 +49,14 @@ export default function WelcomeScreen() {
                     />
                     <Text style={welcomeStyles.welcomeHeaderText}>Little Lemon</Text>
                 </View>
-                <Text style={welcomeStyles.regular}>Window Dimensions</Text>
+                {/* <Text style={welcomeStyles.regular}>Window Dimensions</Text>
                 <Text style={welcomeStyles.regular}>Height: {height}</Text>
                 <Text style={welcomeStyles.regular}>Width: {width}</Text>
-                <Text style={welcomeStyles.regular}>Font scale: {fontScale}</Text>
+                <Text style={welcomeStyles.regular}>Font scale: {fontScale}</Text> */}
+
+                <Pressable onPress={() => navigation.navigate('Menu')}>
+                    <Text style={welcomeStyles.buttonText}>View Menu</Text>
+                </Pressable> 
 
                 <Image
                     style={welcomeStyles.image}
@@ -134,6 +140,11 @@ const welcomeStyles = StyleSheet.create({
     },
     regular: {
         color: '#EDEFEE',
+    },
+    buttonText: {
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 22,
     },
     // welcomeText: {
     //   fontSize: 20,
