@@ -26,15 +26,19 @@ export default function App() {
       <View style={styles.container}>
         <LittleLemonHeader />
 
-        {/* <Drawer.Navigator
-          useLegacyImplementation
-          screenOptions={{ drawerPosition: 'right' }}
+{/* Drawler */}
+        <Drawer.Navigator
+          // useLegacyImplementation больше не используется
+          initialRouteName="Login"
+          screenOptions={{ drawerPosition: 'left' }}
         >
           <Drawer.Screen name="Welcome" component={WelcomeScreen} />
           <Drawer.Screen name="Menu" component={MenuItems} />
-        </Drawer.Navigator> */}
+          <Drawer.Screen name="Login" component={LoginScreen} />
+        </Drawer.Navigator>
+
 {/* Tab.Navigator */}
-        <Tab.Navigator
+       {/* <Tab.Navigator
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
               let iconName;
@@ -53,7 +57,7 @@ export default function App() {
           })}>
           <Tab.Screen name="Welcome" component={WelcomeScreen} />
           <Tab.Screen name="Menu" component={MenuItems} />
-        </Tab.Navigator>
+        </Tab.Navigator>*/}
 
 {/* Stack.Navigator */}
         {/* <Stack.Navigator initialRouteName='Login'
